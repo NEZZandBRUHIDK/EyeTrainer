@@ -1,0 +1,252 @@
+/* --- Сброс и Общие Стили --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid;
+    margin-bottom: 20px;
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.content-section {
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 400px;
+    text-align: center;
+    margin-bottom: 30px;
+    /* Все секции теперь будут с градиентом по умолчанию, который будет меняться темой */
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.main-menu-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+.game-status {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info-content {
+    text-align: left;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px dashed;
+    border-radius: 5px;
+}
+
+/* Стили для списка игр по категориям */
+.game-category-list ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+.game-category-list li {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* --- Стили для нового контейнера категорий (category-box) --- */
+#game-category-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    padding: 20px;
+}
+.category-box {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.category-box h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+.category-box ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.category-box li {
+    padding: 2px 0;
+    font-weight: normal;
+}
+.category-box:hover {
+    transform: translateY(-3px);
+}
+
+
+/* --- Темы (Dark, Light, Blue) --- */
+
+/* ГРАДИЕНТНАЯ ТЕМНАЯ ТЕМА (ПО УМОЛЧАНИЮ) */
+.dark-theme {
+    background: linear-gradient(135deg, #1f2a38 0%, #0d131a 100%);
+    color: #f0f0f0;
+}
+.dark-theme header { 
+    border-color: #444; 
+    background-color: rgba(30, 40, 50, 0.95);
+}
+.dark-theme .content-section, .dark-theme .game-category-list, .dark-theme .game-container { 
+    background: linear-gradient(160deg, rgba(44, 62, 80, 0.9), rgba(22, 31, 39, 0.95)); /* Градиент для секций */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+.dark-theme button { background-color: #3498db; color: white; }
+.dark-theme button:hover { background-color: #2980b9; }
+.dark-theme .info-content { border-color: #555; }
+.dark-theme .game-category-list li { background-color: rgba(44, 62, 80, 0.7); }
+.dark-theme .game-category-list li:hover { background-color: rgba(52, 73, 94, 0.8); }
+.dark-theme .category-box {
+    background-color: rgba(52, 73, 94, 0.8);
+    border-color: #555;
+}
+.dark-theme .category-box:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Светлая Тема */
+.light-theme {
+    background: linear-gradient(135deg, #f0f4f7 0%, #e0e6eb 100%);
+    color: #333;
+}
+.light-theme header { border-color: #ccc; background-color: #f4f4f4; }
+.light-theme .content-section, .light-theme .game-category-list, .light-theme .game-container { 
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.95)); /* Градиент для секций */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.light-theme button { background-color: #007bff; color: white; }
+.light-theme button:hover { background-color: #0056b3; }
+.light-theme .info-content { border-color: #ccc; }
+.light-theme .game-category-list li { background-color: rgba(255, 255, 255, 0.7); }
+.light-theme .game-category-list li:hover { background-color: rgba(230, 230, 230, 0.8); }
+.light-theme .category-box { background-color: rgba(249, 249, 249, 0.8); border-color: #ccc; }
+
+
+/* Синяя Тема */
+.blue-theme {
+    background: linear-gradient(45deg, #303f9f 0%, #1a237e 100%);
+    color: #e3f2fd;
+}
+.blue-theme header { border-color: #448aff; background-color: rgba(26, 35, 126, 0.95); }
+.blue-theme .content-section, .blue-theme .game-category-list, .blue-theme .game-container { 
+    background: linear-gradient(160deg, rgba(63, 81, 181, 0.9), rgba(26, 35, 126, 0.95)); /* Градиент для секций */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+.blue-theme button { background-color: #ff9800; color: #1a237e; }
+.blue-theme button:hover { background-color: #fb8c00; }
+.blue-theme .info-content { border-color: #64b5f6; }
+.blue-theme .game-category-list li { background-color: rgba(63, 81, 181, 0.7); }
+.blue-theme .game-category-list li:hover { background-color: rgba(92, 107, 192, 0.8); }
+.blue-theme .category-box { background-color: rgba(63, 81, 181, 0.8); border-color: #448aff; }
+
+
+/* --- Стили для ИГР --- */
+
+/* Игра 1: Быстрый Фокус */
+#focus-area { width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; margin-top: 20px; border: 2px dashed #ff9800; border-radius: 50%; }
+#focus-point { width: 10px; height: 10px; background-color: #ffffff; border-radius: 50%; transition: width 0.3s, height 0.3s, background-color 0.1s; cursor: pointer; }
+
+/* Игра 2: Таблица Шульте */
+#schulte-table { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(5, 1fr); width: 300px; height: 300px; margin: 20px auto; border: 2px solid; }
+.schulte-cell { display: flex; align-items: center; justify-content: center; font-size: 1.2em; cursor: pointer; transition: background-color 0.2s; user-select: none; border: 1px solid; }
+.schulte-cell.correct { background-color: #1a7d1a !important; color: white; font-weight: bold; cursor: default; }
+.dark-theme #schulte-table { border-color: #555; }
+.dark-theme .schulte-cell { border-color: #555; background-color: #3a3a3a; }
+
+/* Игра 3: Перехват Объекта */
+#tracking-area { position: relative; width: 350px; height: 350px; border: 2px solid #3498db; margin: 20px; border-radius: 5px; }
+#tracking-object { position: absolute; width: 30px; height: 30px; background-color: #3498db; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%, -50%); cursor: pointer; }
+
+/* Игра 4: Угловой Ритм */
+#four-points-area { position: relative; width: 300px; height: 300px; margin: 20px; border: 1px dashed #7f8c8d; }
+.point { position: absolute; width: 15px; height: 15px; background-color: #7f8c8d; border-radius: 50%; transform: translate(-50%, -50%); transition: background-color 0.1s; }
+.point.active { background-color: #e74c3c; }
+#fp-center { top: 50%; left: 50%; }
+.top-left { top: 10%; left: 10%; }
+.top-right { top: 10%; right: 10%; }
+.bottom-left { bottom: 10%; left: 10%; }
+.bottom-right { bottom: 10%; right: 10%; }
+
+/* Игра 5: Ближний/Дальний фокус */
+#near-far-area { width: 100%; margin-top: 20px; }
+#near-far-text { font-size: 2em; font-weight: bold; color: #ff9a00; cursor: pointer; transition: transform 0.3s, color 0.3s; }
+
+/* Игра 6: Восьмерка */
+#figure8-area { position: relative; width: 350px; height: 350px; border: 2px dashed #9b59b6; margin: 20px; border-radius: 5px; }
+#figure8-object { position: absolute; width: 20px; height: 20px; background-color: #9b59b6; border-radius: 50%; }
+#figure8-area p { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.1em; font-weight: bold; }
+
+/* Игра 8: Аккомодация */
+#acc-text { margin-top: 20px; cursor: pointer; }
+#acc-line-1, #acc-line-2 { font-size: 1.5em; margin: 5px 0; transition: filter 0.3s; }
+
+/* Игра 9: Периферийный тест */
+#peripheral-area { position: relative; width: 400px; height: 150px; margin: 20px auto; display: flex; align-items: center; justify-content: center; border-top: 1px solid; border-bottom: 1px solid; }
+#peripheral-cross { font-size: 2em; font-weight: bold; color: #2ecc71; z-index: 10; }
+#peripheral-target { position: absolute; width: 30px; height: 30px; background-color: #f39c12; display: none; top: 50%; transform: translateY(-50%); }
+.dark-theme #peripheral-area { border-color: #555; }
+
+/* Игра 10: Сетка Адамаса */
+#adamas-grid { 
+    width: 350px; height: 350px; 
+    background-image: 
+        repeating-linear-gradient(0deg, #3498db, #3498db 1px, transparent 1px, transparent 15px),
+        repeating-linear-gradient(90deg, #3498db, #3498db 1px, transparent 1px, transparent 15px);
+    background-size: 15px 15px;
+    border: 2px solid #3498db;
+    margin: 20px;
+    cursor: pointer;
+}
